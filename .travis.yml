@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t dharshan-97/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true dharshan-git/docker-react npm run test
